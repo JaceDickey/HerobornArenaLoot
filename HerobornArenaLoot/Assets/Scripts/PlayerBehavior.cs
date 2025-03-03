@@ -28,6 +28,7 @@ public class PlayerBehavior : MonoBehaviour
     public bool stopped = true;
     public bool walking = false;
     public bool sprinting = false;
+
     public static int sprint = 1000;
     public static int sprintMax = 1000;
     public int sprintMin = 0;
@@ -38,6 +39,9 @@ public class PlayerBehavior : MonoBehaviour
 
     public EnemyBehavior enemy;
     private GameBehavior _gameManager;
+
+    public delegate void JumpingEvent();
+    public event JumpingEvent playerJump;
 
     void Start()
     {
@@ -177,6 +181,7 @@ public class PlayerBehavior : MonoBehaviour
             bulletRB.velocity = this.transform.forward * bulletSpeed;
             bulletShoot = false;
         }
+        //playerJump();
     }
 
         void OnCollisionEnter(Collision collision)

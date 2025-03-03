@@ -16,6 +16,11 @@ public static class Utilities
 
     public static bool RestartLevel(int sceneIndex)
     {
+        if(sceneIndex < 0)
+        {
+            throw new System.ArgumentException("Scene index cannot be negative.");
+        }
+        
         SceneManager.LoadScene(sceneIndex);
         Time.timeScale = 1.0f;
 
@@ -23,9 +28,16 @@ public static class Utilities
         string message = UpdateDeathCount(ref playerDeaths);
         Debug.Log("Player deaths: " + playerDeaths);
 
-        PlayerBehavior.bullets = 11;
+        PlayerBehavior.bullets = 10;
         PlayerBehavior.sprint = 1000;
         PlayerBehavior.sprintBoost = false;
+        PlayerBehavior.sprintMax = 1000;
+
+        PlayerBehavior.jumpCost = 200;
+
+        EnemyBehavior.RestartCollider();
+
+        OpeningWallScript.destroyThis = false;
 
         return true;
     }

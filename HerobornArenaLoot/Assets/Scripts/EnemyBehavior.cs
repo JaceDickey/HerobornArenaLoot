@@ -112,6 +112,19 @@ public class EnemyBehavior : MonoBehaviour
             Debug.LogError("SphereCollider component not found!");
         }
     }
+
+    public static void RestartCollider()
+    {
+        if (sphereCollider != null)
+        {
+            float currentRadius = sphereCollider.radius;
+            sphereCollider.radius = currentRadius * 2f;
+        }
+        else
+        {
+            Debug.LogError("SphereCollider component not found!");
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "Bullet(Clone)")
