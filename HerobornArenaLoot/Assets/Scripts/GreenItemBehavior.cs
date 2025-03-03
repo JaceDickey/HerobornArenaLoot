@@ -18,7 +18,9 @@ public class GreenItemBehavior : MonoBehaviour
         {
             // 3
             Destroy(this.transform.parent.gameObject);
+
+            PlayerBehavior.greenJumpPickedUp();
+            gameManager.PrintLootReport();
         }
-        PlayerBehavior.greenJumpPickedUp();
     }
 }

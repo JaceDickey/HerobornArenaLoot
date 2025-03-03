@@ -26,6 +26,7 @@ public class YellowItemBehavior : MonoBehaviour
             pickedUp = true;
 
             OpeningWallScript.destroy();
+            gameManager.PrintLootReport();
         }
     }
 }

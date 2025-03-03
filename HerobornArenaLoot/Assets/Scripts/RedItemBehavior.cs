@@ -16,7 +16,9 @@ public class RedItemBehavior : MonoBehaviour
         {
             Destroy(this.transform.parent.gameObject);
             Debug.Log("Stamina doubled!");
+
             PlayerBehavior.redStaminaPickedUp();
+            gameManager.PrintLootReport();
         }
     }
 }

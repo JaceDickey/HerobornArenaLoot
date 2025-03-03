@@ -14,6 +14,8 @@ public class GameBehavior : MonoBehaviour, IManager
     public static string detected = "HIDDEN";
     public static int bullets = 10;
 
+    public Stack<string> lootStack = new Stack<string>();
+
     public string State
     {
         get { return _state; }
@@ -58,6 +60,21 @@ public class GameBehavior : MonoBehaviour, IManager
         _state = "Manager initialized..";
         _state.FancyDebug();
         Debug.Log(_state);
+
+        lootStack.Push("Stamina Upgrade");
+        lootStack.Push("Jump Upgrade");
+        lootStack.Push("Sneaky Upgrade");
+        lootStack.Push("Elevator Key");
+        lootStack.Push("Ammo");
+    }
+
+    public void PrintLootReport()
+    {
+        var currentItem = lootStack.Pop();
+        var nextItem = lootStack.Peek();
+
+        //Debug.LogFormat("You got a {0}! You've got a good change of finding a {1} next!", currentItem, nextItem);
+        //Debug.LogFormat("There are {0} random loot items left!", lootStack.Count);
     }
 
     void Start()

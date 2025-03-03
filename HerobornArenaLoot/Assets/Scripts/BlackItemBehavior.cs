@@ -10,13 +10,15 @@ public class BlackItemBehavior : MonoBehaviour
         gameManager = GameObject.Find("Game Manager").GetComponent<GameBehavior>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "Player")
         {
             Destroy(this.transform.parent.gameObject);
             Debug.Log("+10 bullets!");
+
             PlayerBehavior.ammoPickedUp();
+            gameManager.PrintLootReport();
         }
     }
 }
