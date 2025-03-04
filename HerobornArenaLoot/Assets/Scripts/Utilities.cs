@@ -39,6 +39,10 @@ public static class Utilities
 
         OpeningWallScript.destroyThis = false;
 
+        GameBehavior.detected = "HIDDEN";
+
+        GameBehavior.bullets = PlayerBehavior.bullets;
+
         return true;
     }
 
